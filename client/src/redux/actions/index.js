@@ -1,8 +1,9 @@
 import types from './types'
 
-export const signIn = () => {
+export const signIn = (uid) => {
     return {
-        type: types.SIGN_IN
+        type: types.SIGN_IN,
+        payload: uid
     }
 }
 
