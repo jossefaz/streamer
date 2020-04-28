@@ -1,3 +1,5 @@
+import types from '../actions/types'
+
 const INITIAL_STATE = {
     isSignedIn: null
 }
@@ -5,10 +7,10 @@ const INITIAL_STATE = {
 export default (state = INITIAL_STATE, action) => {
 
     switch (action.type) {
-        case 'SIGN_IN':
+        case types.SIGN_IN:
             return { ...state, isSignedIn: true }
 
-        case 'SIGN_OUT':
+        case types.SIGN_OUT:
             return { ...state, isSignedIn: false }
 
         default:
