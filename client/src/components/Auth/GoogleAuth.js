@@ -1,4 +1,5 @@
 import React from 'react';
+import GoogleBtn from './GoogleBtn'
 
 class GoogleAuth extends React.Component {
     state = {
@@ -23,15 +24,23 @@ class GoogleAuth extends React.Component {
         this.setState({ isSignedIn: this.auth.isSignedIn.get() })
     }
 
+    onSignIn = () => {
+        this.auth.signIn();
+    }
+
+    onSignOut = () => {
+        this.auth.signOut();
+    }
+
     renderAuthButton() {
 
         switch (this.state.isSignedIn) {
             case null:
-                return <div>No Idea</div>
+                return null
             case true:
-                return <div>Signed In</div>
+                return <GoogleBtn content="Sign out" click={this.onSignOut} />
             default:
-                return <div>Not Signed In</div>;
+                return <GoogleBtn content="Sign in with Google" click={this.onSignIn} />;
         }
     }
 
